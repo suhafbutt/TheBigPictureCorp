@@ -14,7 +14,7 @@ class DownloadResponse
       next result_overview[:success_count] += 1 if response.success?
 
       result_overview[:failed_count] += 1
-      result_overview[:failed_errors] << response
+      result_overview[:failed_errors] << process_failed_download(response)
     end
     result_overview
   end

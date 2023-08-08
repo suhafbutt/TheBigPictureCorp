@@ -35,12 +35,12 @@ class Downloader
 
   def download_and_validate(image_url)
     temp_file = Down.download(image_url)
-    validate(temp_file, image_url)
+    validate_move_to_destination(temp_file, image_url)
   rescue StandardError
     update_results(Result.new(false, 'Something went wrong while downloading the image.', image_url))
   end
 
-  def validate(temp_image, original_image_url)
+  def validate_move_to_destination(temp_image, original_image_url)
     result = ImageValidator.new(image: temp_image).validate
     result.object = original_image_url
     FileUtils.mv(temp_image.path, "#{destination_path}#{temp_image.original_filename}") if result.success?

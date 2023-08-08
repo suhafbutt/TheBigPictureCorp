@@ -5,7 +5,6 @@ require_relative '../validators/file_validator'
 require_relative '../validators/path_validator'
 require_relative '../validators/image_validator'
 require_relative '../services/images/download_response'
-require 'pry'
 
 namespace :the_big_picture_corp do
   desc 'rake task example'
