@@ -3,17 +3,34 @@ GEM
   specs:
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    diff-lcs (1.5.0)
     down (5.4.1)
       addressable (~> 2.8)
+    parallel (1.23.0)
     public_suffix (5.0.3)
     rake (13.0.6)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-support (3.12.1)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
   down (~> 5.4.1)
-  rake
+  parallel
+  rake (~> 13.0.6)
+  rspec
 
 RUBY VERSION
    ruby 3.2.2p53

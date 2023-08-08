@@ -8,28 +8,27 @@ class Parser
   end
 
   def parse
-    # TODO check if path is a URL if yes then we validate if its a text file remotely, if not,check if file? and check  
-    # TODO better to raise error, check content type of response
-    return Result.new(false, 'File cannot be found.', file_path) unless File.file?(file_path) # when file exits locally
+    validation_response = FileValidator.new(file:, file_path:).validate
+    return validation_response unless validation_response.success?
 
-    
-    get_image_urls
+    Result.new(true, nil, image_urls)
   rescue URI::InvalidURIError
-    return Result.new(false, 'URL is not valid.', nil) 
-  
+    Result.new(false, 'something went wrong while access the file.', file_path)
   end
 
   private
 
+  def file
+    @file ||= URI.open(file_path) if file_path
+  end
 
-  def get_image_urls # TODO validate type here as well
-    file = open(file_path)
+  def image_urls
     content = file.read
-    file.close # nit: mayve write this under ensure
+    file.close
     parse_file_content(content)
   end
 
   def parse_file_content(content)
-    image_urls = content.split(' ')
+    content.split(' ')
   end
 end
