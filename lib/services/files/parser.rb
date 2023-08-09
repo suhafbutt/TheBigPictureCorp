@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class Parser
-  attr_accessor :file_path
+  attr_reader :file_path
 
   def initialize(file_path:)
     @file_path = file_path

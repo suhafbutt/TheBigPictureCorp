@@ -1,7 +1,7 @@
 require 'net/http'
 
 class FileValidator
-  attr_accessor :file, :errors, :file_path
+  attr_reader :file, :errors, :file_path
 
   VALID_FILE_EXTENSIONS = '.txt'
 

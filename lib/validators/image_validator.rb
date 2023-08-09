@@ -1,7 +1,7 @@
 require 'net/http'
 
 class ImageValidator
-  attr_accessor :image, :errors
+  attr_reader :image, :errors
 
   VALID_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif'].freeze
 

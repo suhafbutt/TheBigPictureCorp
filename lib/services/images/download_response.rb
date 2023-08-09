@@ -1,5 +1,5 @@
 class DownloadResponse
-  attr_accessor :list_of_responses, :result_overview
+  attr_reader :list_of_responses, :result_overview
 
   def initialize(list_of_responses)
     @list_of_responses = list_of_responses

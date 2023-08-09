@@ -3,7 +3,7 @@ require 'fileutils'
 require 'parallel'
 
 class Downloader
-  attr_accessor :image_urls, :destination_path, :results, :mutex
+  attr_reader :image_urls, :destination_path, :results, :mutex
 
   MAX_THREAD_COUNT = 100
 
